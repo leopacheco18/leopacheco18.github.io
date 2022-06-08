@@ -1,38 +1,141 @@
-.App {
-  text-align: center;
+.background{
+  height: 100vh;
+  background: linear-gradient(135deg, #330867  50%, #30cfd0 0%);
+  
+  overflow: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container-know-me{
+  
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+
+}
+
+.button-know-me{
+  width: 20vw;
+  height: 20vw;
+  background-color: white;
+  border-radius: 50%;
+  color: black;
+  font-size: 2vw;
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.button-know-me:hover{
+  
+  background-color: black;
   color: white;
+  transition: all 0.5s;
 }
 
-.App-link {
-  color: #61dafb;
+.container-content{
+  display: flex;
+  background: linear-gradient(135deg, #330867 , #30cfd0 );
+  animation: fade-in 1s;
 }
-
-@keyframes App-logo-spin {
+@keyframes fade-in {
   from {
-    transform: rotate(0deg);
-  }
+      opacity: 0;
+}
+
   to {
-    transform: rotate(360deg);
+      opacity: 1;
   }
+}
+
+.content-item{
+  width: 24%;
+  margin-top: -20vh;
+  height: 200vh;
+  transform: rotate(10deg);
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.content-item:hover{
+  transform: rotate(10deg) scale(1.2);
+  transition: all 0.5s;
+}
+
+.content-home{
+  filter: brightness(40%);
+  background-image: url("./assets/home-bg.jpg");
+}
+
+.content-home:hover{
+  filter: brightness(100%);
+}
+
+.content-home-info{
+  
+  padding-top: 60vh;
+  color: white;
+  font-size: 8rem;
+  transform: rotate(-10deg);
+}
+.content-work{
+  filter: brightness(40%);
+  background-image: url("./assets/work-bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.content-work:hover{
+  filter: brightness(100%);
+}
+
+.content-work-info{
+  padding-top: 60vh;
+  color: white;
+  font-size: 8rem;
+  transform: rotate(-10deg);
+}
+
+
+.content-about{
+  filter: brightness(40%);
+  background-image: url("./assets/about-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.content-about:hover{
+  filter: brightness(100%);
+}
+
+.content-about-info{
+  padding-top: 60vh;
+  color: black;
+  font-size: 8rem;
+  transform: rotate(-10deg);
+}
+
+.content-contact{
+  filter: brightness(40%);
+  background-image: url("./assets/contact-bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.content-contact:hover{
+  filter: brightness(100%);
+}
+.content-contact-info{
+  padding-top: 60vh;
+  color: white;
+  font-size: 8rem;
+  transform: rotate(-10deg);
 }
