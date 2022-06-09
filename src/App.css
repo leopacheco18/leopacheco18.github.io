@@ -98,10 +98,11 @@
 
 .content-home-info{
   
-  padding-top: 60vh;
+  padding-top: 70vh;
   color: white;
-  font-size: 7vw;
+  font-size: 5vw;
   transform: rotate(-10deg);
+  margin-left: -4vh;
 }
 .content-work{
   filter: brightness(40%);
@@ -116,10 +117,11 @@
 }
 
 .content-work-info{
-  padding-top: 60vh;
+  padding-top: 70vh;
   color: white;
-  font-size: 7vw;
+  font-size: 5vw;
   transform: rotate(-10deg);
+  margin-left: -4vh;
 }
 
 
@@ -136,10 +138,11 @@
 }
 
 .content-about-info{
-  padding-top: 60vh;
+  padding-top: 70vh;
   color: black;
-  font-size: 7vw;
+  font-size: 5vw;
   transform: rotate(-10deg);
+  margin-left: -4vh;
 }
 
 .content-contact{
@@ -154,8 +157,9 @@
   filter: brightness(100%);
 }
 .content-contact-info{
-  padding-top: 60vh;
+  padding-top: 70vh;
   color: white;
-  font-size: 7vw;
+  font-size: 5vw;
   transform: rotate(-10deg);
+  margin-left: -4vh;
 }
