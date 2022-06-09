@@ -5,7 +5,9 @@ function App() {
   const [showContent, setShowContent] = useState(false);
   const [showSelectedContent, setShowSelectedContent] = useState(false);
   const [contenSelected, setContentSelected] = useState(false);
+  const [showOptionContent, setShowOptionContent] = useState(false);
   const [finishAnimation, setFinishAnimation] = useState(false);
+  const [hideInnerInfo, setHideInnerInfo] = useState(false);
 
   const sleep = (m) => new Promise((r) => setTimeout(r, m));
   const changeBg = async () => {
@@ -29,8 +31,31 @@ function App() {
   };
 
   const selectedContent = (option) => {
-    setShowSelectedContent(true);
-    setContentSelected(option);
+    if (showSelectedContent) {
+      setHideInnerInfo(true);
+      setTimeout(() => {
+        setShowOptionContent(false);
+        setShowSelectedContent(false);
+        setContentSelected("");
+      }, 500);
+    } else {
+      setShowSelectedContent(true);
+      setContentSelected(option);
+      setHideInnerInfo(false);
+      setTimeout(() => {
+        setShowOptionContent(true);
+      }, 500);
+    }
+  };
+
+  const validateOption = (option) => {
+    return (
+      !showSelectedContent || (showSelectedContent && contenSelected === option)
+    );
+  };
+
+  const validateSelected = (option) => {
+    return showSelectedContent && contenSelected === option;
   };
 
   return (
@@ -48,66 +73,77 @@ function App() {
             onClick={() => selectedContent("home")}
             className="content-item content-home"
             style={{
-              width:
-                !showSelectedContent ||
-                (showSelectedContent && contenSelected === "home")
-                  ? "24%"
-                  : "0%",
+              width: !validateOption("home") && "0%",
+              filter: validateSelected("home") && "brightness(100%)",
+              transform: validateSelected("home") && "rotate(0)",
             }}
           >
-            {(!showSelectedContent ||
-              (showSelectedContent && contenSelected === "home")) && (
-              <div className="content-home-info">Home</div>
+            {validateOption("home") && (
+              <div
+                className="content-home-info"
+                style={{ transform: validateSelected("home") && "rotate(0)" }}
+              >
+                Home
+              </div>
             )}
           </div>
           <div
             onClick={() => selectedContent("work")}
             className="content-item content-work"
             style={{
-              width:
-                !showSelectedContent ||
-                (showSelectedContent && contenSelected === "work")
-                  ? "24%"
-                  : "0%",
+              width: !validateOption("work") && "0%",
+              filter: validateSelected("work") && "brightness(100%)",
+              transform: validateSelected("work") && "rotate(0)",
             }}
           >
-            {(!showSelectedContent ||
-              (showSelectedContent && contenSelected === "work")) && (
-              <div className="content-work-info">Work</div>
+            {validateOption("work") && (
+              <div
+                className="content-work-info"
+                style={{ transform: validateSelected("work") && "rotate(0)" }}
+              >
+                Work
+              </div>
             )}
           </div>
           <div
             onClick={() => selectedContent("about")}
             className="content-item content-about"
             style={{
-              width:
-                !showSelectedContent ||
-                (showSelectedContent && contenSelected === "about")
-                  ? "24%"
-                  : "0%",
+              width: !validateOption("about") && "0%",
+              filter: validateSelected("about") && "brightness(100%)",
+              transform: validateSelected("about") && "rotate(0)",
             }}
           >
-            {(!showSelectedContent ||
-              (showSelectedContent && contenSelected === "about")) && (
-              <div className="content-about-info">About</div>
+            {validateOption("about") && (
+              <div
+                className="content-about-info"
+                style={{ transform: validateSelected("about") && "rotate(0)" }}
+              >
+                About
+              </div>
             )}
           </div>
           <div
             onClick={() => selectedContent("contact")}
             className="content-item content-contact"
             style={{
-              width:
-                !showSelectedContent ||
-                (showSelectedContent && contenSelected === "contact")
-                  ? "24%"
-                  : "0%",
+              width: !validateOption("contact") && "0%",
+              filter: validateSelected("contact") && "brightness(100%)",
+              transform: validateSelected("contact") && "rotate(0)",
             }}
           >
-            {(!showSelectedContent ||
-              (showSelectedContent && contenSelected === "contact")) && (
-              <div className="content-contact-info">Contact</div>
+            {validateOption("contact") && (
+              <div
+                className="content-contact-info"
+                style={{
+                  transform: validateSelected("contact") && "rotate(0)",
+                }}
+              >
+                Contact
+              </div>
             )}
           </div>
+          {showOptionContent && <div className="option-inner-content" style={{width: hideInnerInfo && '0%'}}></div>}
         </div>
       )}
     </div>

@@ -53,6 +53,26 @@
   }
 }
 
+.option-inner-content{
+  background-color: white;
+  width: 75%;
+  border-radius: 0 10px 10px 0;
+  animation: leftToRight 0.5s;
+  height: 90vh;
+  margin: 5vh 0;
+  transition: all 0.5s;
+}
+
+@keyframes leftToRight {
+  from {
+      width: 0%;
+}
+
+  to {
+      width: 75%;
+  }
+}
+
 .content-item{
   width: 24%;
   margin-top: -20vh;
@@ -80,7 +100,7 @@
   
   padding-top: 60vh;
   color: white;
-  font-size: 8rem;
+  font-size: 7vw;
   transform: rotate(-10deg);
 }
 .content-work{
@@ -98,7 +118,7 @@
 .content-work-info{
   padding-top: 60vh;
   color: white;
-  font-size: 8rem;
+  font-size: 7vw;
   transform: rotate(-10deg);
 }
 
@@ -118,7 +138,7 @@
 .content-about-info{
   padding-top: 60vh;
   color: black;
-  font-size: 8rem;
+  font-size: 7vw;
   transform: rotate(-10deg);
 }
 
@@ -136,6 +156,6 @@
 .content-contact-info{
   padding-top: 60vh;
   color: white;
-  font-size: 8rem;
+  font-size: 7vw;
   transform: rotate(-10deg);
 }
