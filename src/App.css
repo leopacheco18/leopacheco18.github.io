@@ -10,6 +10,7 @@
   
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -80,7 +81,7 @@
 }
 
   to {
-    height: 75vh;
+    height: 70vh;
   }
 }
 
@@ -102,7 +103,7 @@
     width: 90vw;
     border-radius: 0 0 10px 10px;
     animation: topToBottom 0.5s;
-    height: 75vh;
+    height: 70vh;
     margin: 0 5vw;
     transition: all 0.5s;
 }
