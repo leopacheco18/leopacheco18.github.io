@@ -13,20 +13,12 @@ function App() {
   const isMobile = window.innerWidth < 800;
   const sleep = (m) => new Promise((r) => setTimeout(r, m));
   const changeBg = async () => {
-    // let actualDg = 135;
     let actualWidth = 50;
     let bg = document.getElementById("bg");
     setShowContent(true);
-    // while(actualDg > 90){
-    //   actualDg--;
-    //   bg.style.background = `linear-gradient(${actualDg}deg, #330867  50%, #30cfd0 0%)`;
-    //   await sleep(10)
-    // }
-    let addWhite = 50;
     while (actualWidth > 0) {
       actualWidth--;
-      addWhite++;
-      bg.style.background = `linear-gradient(135deg, #330867  ${actualWidth}%, white ${actualWidth}% ${addWhite}%, #30cfd0 0%)`;
+      bg.style.background = `linear-gradient(135deg, #330867  ${actualWidth}%, white ${actualWidth}% ${100 - actualWidth}%, #30cfd0 0%)`;
       await sleep(10);
     }
     setFinishAnimation(true);
@@ -86,7 +78,6 @@ function App() {
               height: hideInnerInfo && isMobile && "0"
             }}
             >
-
             </div>
           )}
         </div>
