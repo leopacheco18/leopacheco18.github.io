@@ -41,6 +41,7 @@
 .container-content{
   display: flex;
   background: linear-gradient(135deg, #330867 , #30cfd0 );
+  height: 100vh;
   animation: fade-in 1s;
 }
 @keyframes fade-in {
@@ -73,93 +74,31 @@
   }
 }
 
-.content-item{
-  width: 24%;
-  margin-top: -20vh;
-  height: 200vh;
-  transform: rotate(10deg);
-  cursor: pointer;
-  transition: all 0.5s;
+@keyframes topToBottom {
+  from {
+    height: 0vh;
 }
 
-.content-item:hover{
-  transform: rotate(10deg) scale(1.2);
-  transition: all 0.5s;
-}
-
-.content-home{
-  filter: brightness(40%);
-  background-image: url("./assets/home-bg.jpg");
-}
-
-.content-home:hover{
-  filter: brightness(100%);
-}
-
-.content-home-info{
-  
-  padding-top: 70vh;
-  color: white;
-  font-size: 5vw;
-  transform: rotate(-10deg);
-  margin-left: -4vh;
-}
-.content-work{
-  filter: brightness(40%);
-  background-image: url("./assets/work-bg.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.content-work:hover{
-  filter: brightness(100%);
-}
-
-.content-work-info{
-  padding-top: 70vh;
-  color: white;
-  font-size: 5vw;
-  transform: rotate(-10deg);
-  margin-left: -4vh;
+  to {
+    height: 75vh;
+  }
 }
 
 
-.content-about{
-  filter: brightness(40%);
-  background-image: url("./assets/about-bg.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 
-.content-about:hover{
-  filter: brightness(100%);
-}
 
-.content-about-info{
-  padding-top: 70vh;
-  color: black;
-  font-size: 5vw;
-  transform: rotate(-10deg);
-  margin-left: -4vh;
-}
+@media only screen and (max-width: 800px) {
 
-.content-contact{
-  filter: brightness(40%);
-  background-image: url("./assets/contact-bg.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  .container-content{
+    display: flex;
+    flex-direction: column;
+  }
+  .option-inner-content {
+    width: 90vw;
+    border-radius: 0 0 10px 10px;
+    animation: topToBottom 0.5s;
+    height: 75vh;
+    margin: 0 5vw;
+    transition: all 0.5s;
 }
-
-.content-contact:hover{
-  filter: brightness(100%);
-}
-.content-contact-info{
-  padding-top: 70vh;
-  color: white;
-  font-size: 5vw;
-  transform: rotate(-10deg);
-  margin-left: -4vh;
 }

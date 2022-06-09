@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import OptionHome from "./widget/OptionHome";
 
 function App() {
   const [showContent, setShowContent] = useState(false);
@@ -8,7 +9,8 @@ function App() {
   const [showOptionContent, setShowOptionContent] = useState(false);
   const [finishAnimation, setFinishAnimation] = useState(false);
   const [hideInnerInfo, setHideInnerInfo] = useState(false);
-
+  const information = ["home", "work", "about", "contact"];
+  const isMobile = window.innerWidth < 800;
   const sleep = (m) => new Promise((r) => setTimeout(r, m));
   const changeBg = async () => {
     // let actualDg = 135;
@@ -63,87 +65,30 @@ function App() {
       {!showContent && (
         <div className="container-know-me">
           <div className="button-know-me" onClick={changeBg}>
-            KNOW ME!
+            START
           </div>
         </div>
       )}
       {finishAnimation && (
         <div className="container-content">
-          <div
-            onClick={() => selectedContent("home")}
-            className="content-item content-home"
-            style={{
-              width: !validateOption("home") && "0%",
-              filter: validateSelected("home") && "brightness(100%)",
-              transform: validateSelected("home") && "rotate(0)",
+          {information.map((item) => (
+            <OptionHome
+              item={item}
+              selectedContent={selectedContent}
+              validateOption={validateOption}
+              validateSelected={validateSelected}
+            />
+          ))}
+          {showOptionContent && (
+            <div
+              className="option-inner-content"
+              style={{ width: hideInnerInfo && !isMobile && "0%",
+              height: hideInnerInfo && isMobile && "0"
             }}
-          >
-            {validateOption("home") && (
-              <div
-                className="content-home-info"
-                style={{ transform: validateSelected("home") && "rotate(0)" }}
-              >
-                Home
-              </div>
-            )}
-          </div>
-          <div
-            onClick={() => selectedContent("work")}
-            className="content-item content-work"
-            style={{
-              width: !validateOption("work") && "0%",
-              filter: validateSelected("work") && "brightness(100%)",
-              transform: validateSelected("work") && "rotate(0)",
-            }}
-          >
-            {validateOption("work") && (
-              <div
-                className="content-work-info"
-                style={{ transform: validateSelected("work") && "rotate(0)" }}
-              >
-                Work
-              </div>
-            )}
-          </div>
-          <div
-            onClick={() => selectedContent("about")}
-            className="content-item content-about"
-            style={{
-              width: !validateOption("about") && "0%",
-              filter: validateSelected("about") && "brightness(100%)",
-              transform: validateSelected("about") && "rotate(0)",
-            }}
-          >
-            {validateOption("about") && (
-              <div
-                className="content-about-info"
-                style={{ transform: validateSelected("about") && "rotate(0)" }}
-              >
-                About
-              </div>
-            )}
-          </div>
-          <div
-            onClick={() => selectedContent("contact")}
-            className="content-item content-contact"
-            style={{
-              width: !validateOption("contact") && "0%",
-              filter: validateSelected("contact") && "brightness(100%)",
-              transform: validateSelected("contact") && "rotate(0)",
-            }}
-          >
-            {validateOption("contact") && (
-              <div
-                className="content-contact-info"
-                style={{
-                  transform: validateSelected("contact") && "rotate(0)",
-                }}
-              >
-                Contact
-              </div>
-            )}
-          </div>
-          {showOptionContent && <div className="option-inner-content" style={{width: hideInnerInfo && '0%'}}></div>}
+            >
+
+            </div>
+          )}
         </div>
       )}
     </div>
