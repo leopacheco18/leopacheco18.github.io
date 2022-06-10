@@ -1,0 +1,13 @@
+.banner {
+  width: 100%;
+}
+.home-info {
+  font-size: 1vw;
+}
+
+@media only screen and (max-width: 800px) {
+  .home-info {
+    font-size: 1.75vh;
+    line-height: 1.5;
+  }
+}

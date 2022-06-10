@@ -1,0 +1,30 @@
+.about-description{
+    font-size: 0.8vw;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.list-container-flex{
+    display: flex;
+}
+
+.list-container{
+    width: 33%;
+}
+
+li{
+    line-height: 2;
+}
+
+@media only screen and (max-width: 800px) {
+    .about-description{
+        font-size: 1.1vh;
+    }
+    .list-container{
+        width: 50%;
+    }
+    li{
+        font-size: 1.1vh;
+        line-height: 2;
+    }
+}

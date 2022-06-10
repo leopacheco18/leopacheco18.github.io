@@ -1,7 +1,10 @@
 import { useState } from "react";
 import "./App.css";
 import OptionHome from "./widget/OptionHome";
-
+import { FaHome } from "react-icons/fa";
+import ContactContent from "./widget/contact/ContactContent";
+import AboutContent from "./widget/about/AboutContent";
+import HomeContent from "./widget/home/HomeContent";
 function App() {
   const [showContent, setShowContent] = useState(false);
   const [showSelectedContent, setShowSelectedContent] = useState(false);
@@ -18,7 +21,9 @@ function App() {
     setShowContent(true);
     while (actualWidth > 0) {
       actualWidth--;
-      bg.style.background = `linear-gradient(135deg, #330867  ${actualWidth}%, white ${actualWidth}% ${100 - actualWidth}%, #30cfd0 0%)`;
+      bg.style.background = `linear-gradient(135deg, #330867  ${actualWidth}%, white ${actualWidth}% ${
+        100 - actualWidth
+      }%, #30cfd0 0%)`;
       await sleep(10);
     }
     setFinishAnimation(true);
@@ -74,12 +79,25 @@ function App() {
           {showOptionContent && (
             <div
               className="option-inner-content"
-              style={{ width: hideInnerInfo && !isMobile && "0%",
-              height: hideInnerInfo && isMobile && "0"
-            }}
+              style={{
+                width: hideInnerInfo && !isMobile && "0%",
+                height: hideInnerInfo && isMobile && "0",
+              }}
             >
+              <div className="padding-content">
+                {validateSelected("home") && !hideInnerInfo && <HomeContent />}
+                {validateSelected("about") && !hideInnerInfo && <AboutContent />}
+                {validateSelected("contact") && !hideInnerInfo && (
+                  <ContactContent />
+                )}
+              </div>
             </div>
           )}
+        </div>
+      )}
+      {showOptionContent && (
+        <div className="button-home" onClick={selectedContent}>
+          <FaHome className="icon-home" />
         </div>
       )}
     </div>

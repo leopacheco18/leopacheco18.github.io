@@ -4,11 +4,11 @@ import "./OptionHome.css";
 const OptionHome = ({item,selectedContent,validateOption, validateSelected }) => {
 
     const isMobile = window.innerWidth < 800;
-
     const capitalizeText = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
-    const bgImage = require(`./../assets/${item}-bg.jpg`);
+   
+    const bgImage = (isMobile && item === 'about' ? require(`./../assets/${item}-bg-mobile.jpg`) : require(`./../assets/${item}-bg.jpg`));
   return (
     <div
             onClick={() => selectedContent(item)}
@@ -26,7 +26,7 @@ const OptionHome = ({item,selectedContent,validateOption, validateSelected }) =>
                 className="content-info"
                 style={{ 
                     transform: validateSelected(item) && "rotate(0)",
-                    marginLeft: validateSelected(item) && "30px" }}
+                    marginLeft: validateSelected(item) && !isMobile && "20px" }}
               >
                 {capitalizeText(item)}
               </div>
