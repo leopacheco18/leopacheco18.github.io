@@ -23,7 +23,7 @@ const ContactContent = () => {
     <>
     <Toaster />
       <h3 className="option-content-title">
-        You can contact me through my social media
+        Contact me through my social media
       </h3>
       <div className="contact-container">
         <div className="contact-box" onClick={() => redirect("https://github.com/leopacheco18")}>

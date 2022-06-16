@@ -2,12 +2,15 @@
   width: 100%;
 }
 .home-info {
-  font-size: 1vw;
+  font-size: 1.5vw;
+  line-height: 0.5;
+  font-family: "Roboto Mono", monospace;
+  text-align: justify;
 }
 
 @media only screen and (max-width: 800px) {
   .home-info {
-    font-size: 1.75vh;
+    font-size: 2vh;
     line-height: 1.5;
   }
 }

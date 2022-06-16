@@ -11,6 +11,7 @@ function App() {
   const [showSelectedContent, setShowSelectedContent] = useState(false);
   const [contenSelected, setContentSelected] = useState(false);
   const [showOptionContent, setShowOptionContent] = useState(false);
+  const [animationLoaded, setAnimationLoaded] = useState(false);
   const [finishAnimation, setFinishAnimation] = useState(false);
   const [hideInnerInfo, setHideInnerInfo] = useState(false);
   const information = ["home",  "about","work", "contact"];
@@ -33,6 +34,7 @@ function App() {
   const selectedContent = (option) => {
     if (showSelectedContent) {
       setHideInnerInfo(true);
+      setAnimationLoaded(false);
       setTimeout(() => {
         setShowOptionContent(false);
         setShowSelectedContent(false);
@@ -44,6 +46,9 @@ function App() {
       setHideInnerInfo(false);
       setTimeout(() => {
         setShowOptionContent(true);
+        setTimeout(() => {
+          setAnimationLoaded(true);
+        }, 500);
       }, 500);
     }
   };
@@ -86,7 +91,8 @@ function App() {
                 height: hideInnerInfo && isMobile && "0",
               }}
             >
-              <div className="padding-content">
+              {animationLoaded && 
+                <div className="padding-content">
                 {validateSelected("home") && !hideInnerInfo && <HomeContent />}
                 {validateSelected("work") && !hideInnerInfo && <WorkContent />}
                 {validateSelected("about") && !hideInnerInfo && <AboutContent />}
@@ -94,6 +100,8 @@ function App() {
                   <ContactContent />
                 )}
               </div>
+              }
+            
             </div>
           )}
         </div>

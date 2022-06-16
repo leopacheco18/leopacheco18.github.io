@@ -85,7 +85,18 @@
 }
 
 .padding-content{
-  padding: 5vh;
+  padding: 2.5vh 5vh;
+  animation: fadeIn 0.75s;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+}
+
+  to {
+      opacity: 1;
+  }
 }
 
 
@@ -113,6 +124,7 @@
 .option-content-title {
   font-size: 2vw;
   line-height: 1.5;
+  margin-top: 0;
 }
 .option-content-subtitle{
   
