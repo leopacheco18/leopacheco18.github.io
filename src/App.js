@@ -67,8 +67,9 @@ function App() {
           </div>
         </div>
       )}
-      {finishAnimation && (
-        <div className="container-content">
+        <div className="container-content"
+          style={{display: (!finishAnimation && 'none')}}
+        >
           {information.map((item) => (
             <OptionHome
               item={item}
@@ -96,7 +97,6 @@ function App() {
             </div>
           )}
         </div>
-      )}
       {showOptionContent && (
         <div className="button-home" onClick={selectedContent}>
           <FaHome className="icon-home" />
