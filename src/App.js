@@ -5,6 +5,7 @@ import { FaHome } from "react-icons/fa";
 import ContactContent from "./widget/contact/ContactContent";
 import AboutContent from "./widget/about/AboutContent";
 import HomeContent from "./widget/home/HomeContent";
+import WorkContent from "./widget/work/WorkContent";
 function App() {
   const [showContent, setShowContent] = useState(false);
   const [showSelectedContent, setShowSelectedContent] = useState(false);
@@ -12,7 +13,7 @@ function App() {
   const [showOptionContent, setShowOptionContent] = useState(false);
   const [finishAnimation, setFinishAnimation] = useState(false);
   const [hideInnerInfo, setHideInnerInfo] = useState(false);
-  const information = ["home", "work", "about", "contact"];
+  const information = ["home",  "about","work", "contact"];
   const isMobile = window.innerWidth < 800;
   const sleep = (m) => new Promise((r) => setTimeout(r, m));
   const changeBg = async () => {
@@ -86,6 +87,7 @@ function App() {
             >
               <div className="padding-content">
                 {validateSelected("home") && !hideInnerInfo && <HomeContent />}
+                {validateSelected("work") && !hideInnerInfo && <WorkContent />}
                 {validateSelected("about") && !hideInnerInfo && <AboutContent />}
                 {validateSelected("contact") && !hideInnerInfo && (
                   <ContactContent />
