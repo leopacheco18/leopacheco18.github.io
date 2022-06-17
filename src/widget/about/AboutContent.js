@@ -10,7 +10,7 @@ const AboutContent = () => {
       <p className="about-description">
         My name is Leonardo Pacheco also known as Toby so my alias on developer
         world is Toby Dev. I'm a software engineer from UDLA in Ecuador. I
-        started to learn web programming from 2018 and lately blockchain and
+        started learning web programming from 2018 and lately blockchain and
         web3 world has caught my attention so I start to learn about it.
       </p>
       <br />
