@@ -35,12 +35,15 @@ function App() {
   },[showPortfolio,finishAnimation])
 
   const validateEndpoint = () => {
-    let path = window.location.pathname;
-    if(path === '/portfolio'){
+    let path = window.location.href;
+    let pathArr = path.split('/');
+    path = pathArr[pathArr.length -1 ];
+    console.log(path)
+    if(path === '?portfolio=true'){
       changeBg();
       setShowPortfolio(true);
     }
-    if(path === '/cv'){
+    if(path === '?cv=true'){
       changeBg();
       setShowCv(true);
     }

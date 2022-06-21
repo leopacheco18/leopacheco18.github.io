@@ -76,7 +76,7 @@ const CV = () => {
     let circles = [];
     for (var i = 1; i <= 5; i++) {
       circles.push(
-        <div className={"cv-circle " + (i <= index && "cv-circle-black")}></div>
+        <div key={i} className={"cv-circle " + (i <= index && "cv-circle-black")}></div>
       );
     }
     return circles;
