@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import OptionHome from "./widget/OptionHome";
 import { FaHome } from "react-icons/fa";
@@ -6,6 +6,7 @@ import ContactContent from "./widget/contact/ContactContent";
 import AboutContent from "./widget/about/AboutContent";
 import HomeContent from "./widget/home/HomeContent";
 import WorkContent from "./widget/work/WorkContent";
+import CV from "./widget/cv/CV";
 function App() {
   const [showContent, setShowContent] = useState(false);
   const [showSelectedContent, setShowSelectedContent] = useState(false);
@@ -14,9 +15,37 @@ function App() {
   const [animationLoaded, setAnimationLoaded] = useState(false);
   const [finishAnimation, setFinishAnimation] = useState(false);
   const [hideInnerInfo, setHideInnerInfo] = useState(false);
+  const [showPortfolio, setShowPortfolio] = useState(false)
+  const [showCv, setShowCv] = useState(false)
   const information = ["home",  "about","work", "contact"];
+  
   const isMobile = window.innerWidth < 800;
   const sleep = (m) => new Promise((r) => setTimeout(r, m));
+
+  useEffect(() => {
+    validateEndpoint();
+  }, [])
+
+  useEffect(() => {
+    if(showPortfolio && finishAnimation){
+      setTimeout(() => {
+        selectedContent("work");
+      }, 300);
+    }
+  },[showPortfolio,finishAnimation])
+
+  const validateEndpoint = () => {
+    let path = window.location.pathname;
+    if(path === '/portfolio'){
+      changeBg();
+      setShowPortfolio(true);
+    }
+    if(path === '/cv'){
+      changeBg();
+      setShowCv(true);
+    }
+  }
+
   const changeBg = async () => {
     let actualWidth = 50;
     let bg = document.getElementById("bg");
@@ -32,6 +61,10 @@ function App() {
   };
 
   const selectedContent = (option) => {
+    if(showCv){
+      setShowCv(false)
+      return;
+    }
     if (showSelectedContent) {
       setHideInnerInfo(true);
       setAnimationLoaded(false);
@@ -72,10 +105,14 @@ function App() {
           </div>
         </div>
       )}
-        <div className="container-content"
+      
+      <div className="container-content"
           style={{display: (!finishAnimation && 'none')}}
         >
-          {information.map((item) => (
+      {showCv ?
+      <CV /> :
+      <>
+        {information.map((item) => (
             <OptionHome
               item={item}
               selectedContent={selectedContent}
@@ -104,8 +141,12 @@ function App() {
             
             </div>
           )}
+      </>
+      
+      }
+        
         </div>
-      {showOptionContent && (
+      {(showOptionContent || showCv) && (
         <div className="button-home" onClick={selectedContent}>
           <FaHome className="icon-home" />
         </div>

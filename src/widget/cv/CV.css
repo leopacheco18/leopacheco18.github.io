@@ -1,0 +1,134 @@
+.cv-container {
+  background-color: white;
+  min-height: 100vh;
+  overflow-y: auto;
+  width: 45vw;
+  margin-left: 27.5vw;
+  display: flex;
+  position: relative;
+  font-family: "Roboto Mono", monospace;
+}
+
+.cv-left-side {
+  background-color: #e2e2e2;
+  width: calc(33% - 4vw);
+}
+
+.cv-left-side > .cv-padding-content {
+  background-color: #e2e2e2;
+}
+
+.cv-right-side {
+  background-color: white;
+  width: 67%;
+}
+
+.cv-padding-content {
+  padding-left: 2vw;
+  padding-right: 2vw;
+  padding-bottom: 2vh;
+}
+
+.cv-title {
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-size: 90%;
+  padding-bottom: 5px;
+  border-bottom: 2px solid black;
+  margin-bottom: 15px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.cv-subtitle {
+  margin-bottom: 5px;
+}
+
+.cv-employment-description > ul > li {
+  font-size: 70%;
+  line-height: 1.5;
+}
+
+.cv-employment-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cv-content {
+  font-size: 70%;
+  margin-bottom: 5px;
+  text-align: justify;
+}
+
+.skills-spacing {
+  margin-bottom: 15px;
+}
+
+.cv-circle {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+
+.cv-circles-skill {
+  display: flex;
+  gap: 7.5px;
+}
+
+.cv-circle-black {
+  background-color: black;
+}
+
+.cv-container-name {
+  position: absolute;
+  top: 50px;
+  left: 25%;
+  background-color: white;
+  width: 50%;
+  border: 1px solid black;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+.cv-name {
+  font-weight: 900;
+  font-size: 1.2vw;
+  letter-spacing: 7.5px;
+}
+
+@media only screen and (max-width: 800px) {
+  .cv-container {
+    width: 90vw;
+    margin-left: 5vw;
+  }
+
+  .cv-container-name {
+    position: absolute;
+    top: 25px;
+    left: 25%;
+    padding: 1.5rem .5rem;
+    gap: 10px;
+  }
+
+  .cv-name {
+    font-weight: 900;
+    font-size: 1.5vh;
+    letter-spacing: 1px;
+  }
+  .cv-job {
+    font-size: 1.2vh;
+  }
+  
+.cv-padding-content {
+    padding-left: 2vh;
+    padding-right: 2vh;
+    padding-bottom: 2vh;
+  }
+}
